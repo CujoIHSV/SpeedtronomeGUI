@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpeedtronomeGUI"
         mc:Ignorable="d"
-        Title="Speedtronome" Height="350" Width="525">
+        Title="Speedtronome" Height="350" Width="525" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock x:Name="oscillationRate" HorizontalAlignment="Left" Height="18" Margin="65,19,0,0" TextWrapping="Wrap" Text="Oscillation Rate" VerticalAlignment="Top" Width="270"/>
         <RadioButton x:Name="radio_bpm" Content="Beats per minute" GroupName="OscillationRate" HorizontalAlignment="Left" Height="15" Margin="55,58,0,0" VerticalAlignment="Top" Width="115"/>
-        <RadioButton x:Name="radio_fpb_fps" Content="Frames per beat" GroupName="OscillationRate" HorizontalAlignment="Left" Height="15" Margin="55,78,0,0" VerticalAlignment="Top" Width="115"/>
-        <TextBox x:Name="textBox_bpm" HorizontalAlignment="Left" Height="15" Margin="182,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="textBox_fpb" HorizontalAlignment="Left" Height="15" Margin="182,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
-        <TextBlock x:Name="textBlock_fps" HorizontalAlignment="Left" Height="15" Margin="257,78,0,0" TextWrapping="Wrap" Text="Console frames per second" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="textBox_fps" HorizontalAlignment="Left" Height="15" Margin="412,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <RadioButton x:Name="radio_fpb_fps" Content="Frames per beat" GroupName="OscillationRate" HorizontalAlignment="Left" Height="15" Margin="55,83,0,0" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="textBox_bpm" HorizontalAlignment="Left" Height="20" Margin="182,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="textBox_fpb" HorizontalAlignment="Left" Height="20" Margin="182,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <TextBlock x:Name="textBlock_fps" HorizontalAlignment="Left" Height="15" Margin="257,83,0,0" TextWrapping="Wrap" Text="Console frames per second" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="textBox_fps" HorizontalAlignment="Left" Height="20" Margin="412,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
         <TextBlock x:Name="sound" HorizontalAlignment="Left" Height="18" Margin="65,136,0,0" TextWrapping="Wrap" Text="Tick Sound" VerticalAlignment="Top" Width="270"/>
         <RadioButton x:Name="radio_defaultSound" Content="Default sound" GroupName="tickSound" HorizontalAlignment="Left" Height="15" Margin="55,175,0,0" VerticalAlignment="Top" Width="115"/>
         <RadioButton x:Name="radio_customSound" Content="Custom sound (.wav only)" GroupName="tickSound" HorizontalAlignment="Left" Height="15" Margin="55,195,0,0" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="76,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186"/>
-        <Button x:Name="browse" Content="Browse" HorizontalAlignment="Left" Height="24" Margin="267,215,0,0" VerticalAlignment="Top" Width="72"/>
-        <Button x:Name="start" Content="Start" HorizontalAlignment="Left" Height="24" Margin="170,257,0,0" VerticalAlignment="Top" Width="72"/>
-        <Button x:Name="stop" Content="Stop" HorizontalAlignment="Left" Height="24" Margin="283,257,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="textBox_soundFile" HorizontalAlignment="Left" Height="24" Margin="76,215,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="186"/>
+        <Button x:Name="browse" Content="Browse" HorizontalAlignment="Left" Height="24" Margin="267,215,0,0" VerticalAlignment="Top" Width="72" Click="browse_Click"/>
+        <Button x:Name="start" Content="Start" HorizontalAlignment="Left" Height="24" Margin="170,257,0,0" VerticalAlignment="Top" Width="72" Click="start_Click"/>
+        <Button x:Name="stop" Content="Stop" HorizontalAlignment="Left" Height="24" Margin="283,257,0,0" VerticalAlignment="Top" Width="72" Click="stop_Click"/>
 
     </Grid>
 </Window>

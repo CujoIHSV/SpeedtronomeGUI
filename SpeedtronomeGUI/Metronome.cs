@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Media;
-using System.Text;
+﻿using System.Media;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Speedtronome
 {
@@ -12,26 +7,36 @@ namespace Speedtronome
     {
         private double period;      // Metronome period (in ms)
         private SoundPlayer tone;   // The .wav to play for the tick
+        private Timer timer;        // Repeating timer that plays the tone
 
-        private static readonly SoundPlayer defaultTone = new SoundPlayer("2.wav");
-
-        public Metronome(double bpm)
+        public Metronome(double bpm, string soundFilePath = "2.wav")
         {
             period = 60.0 * 1000 / bpm;
-            tone = defaultTone; // DEFAULT ONLY
+            tone = new SoundPlayer(soundFilePath);
             tone.Load();
+            timer = null;
         }
 
-        public Metronome(int frames)
+        public Metronome(int frames, double framerate, string soundFilePath = "2.wav")
         {
-            period = 1000 * frames / 60.098814;
-            tone = defaultTone; // DEFAULT ONLY
+            period = 1000 * frames / framerate;
+            tone = new SoundPlayer(soundFilePath);
             tone.Load();
+            timer = null;
         }
 
         public void Oscillate()
         {
-            Timer timer = new Timer(Tick, null, 0, (int)period);
+            timer = new Timer(Tick, null, 0, (int)period);
+        }
+
+        public void Halt()
+        {
+            if (timer != null)
+            {
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                timer = null;
+            }
         }
 
         private void Tick(object _)
